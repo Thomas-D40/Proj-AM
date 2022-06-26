@@ -1,23 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Home from "./components/Home";
+import Play from "./components/Play";
+import Congrats from "./components/Congrats";
 
 function App() {
+  const [isStarted, setIsStarted] = useState(false);
+  const [isWin, setIsWin] = useState(false);
+  const [expectedNumber, setExpectedNumber] = useState(0);
+  const [compteur, setCompteur] = useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {isStarted ? (
+        isWin ? (
+          <Congrats
+            isWin={isWin}
+            setIsWin={setIsWin}
+            expectedNumber={expectedNumber}
+            compteur={compteur}
+            setCompteur={setCompteur}
+          />
+        ) : (
+          <Play
+            ExpectedNumber={expectedNumber}
+            isWin={isWin}
+            setIsWin={setIsWin}
+            compteur={compteur}
+            setCompteur={setCompteur}
+          />
+        )
+      ) : (
+        <Home
+          isStarted={isStarted}
+          setIsStarted={setIsStarted}
+          setExpectedNumber={setExpectedNumber}
+        />
+      )}
     </div>
   );
 }
