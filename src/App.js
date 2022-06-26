@@ -20,6 +20,7 @@ function App() {
             expectedNumber={expectedNumber}
             compteur={compteur}
             setCompteur={setCompteur}
+            setExpectedNumber={setExpectedNumber}
           />
         ) : (
           <Play

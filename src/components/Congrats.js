@@ -2,14 +2,14 @@ import React from "react";
 
 const Congrats = ({
   setIsWin,
-  setIsStarted,
   compteur,
   expectedNumber,
   setCompteur,
+  setExpectedNumber,
 }) => {
   const HandleRestart = () => {
-    setIsStarted(false);
     setIsWin(false);
+    setExpectedNumber(Math.floor(Math.random() * 100));
     setCompteur(0);
   };
   return (
@@ -18,6 +18,13 @@ const Congrats = ({
       <p>
         Vous avez trouvé {expectedNumber} en {compteur} tentatives
       </p>
+      <button
+        onClick={() => {
+          HandleRestart();
+        }}
+      >
+        Rejouer
+      </button>
     </div>
   );
 };

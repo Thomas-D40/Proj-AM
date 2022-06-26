@@ -4,7 +4,6 @@ const Home = ({ isStarted, setIsStarted, setExpectedNumber }) => {
   const HandleStart = () => {    
     setIsStarted(!isStarted);
     setExpectedNumber(Math.floor(Math.random() * 100));
-    console.log(isStarted);
   };
 
   return (
